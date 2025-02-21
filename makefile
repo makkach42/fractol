@@ -1,6 +1,6 @@
 NAME = fractol
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 MLX_DIR = minilibx_opengl
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit -lm
 SRCS = fractol.c pars.c
