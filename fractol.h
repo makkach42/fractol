@@ -6,7 +6,6 @@
 
 # define WIDTH 800
 # define HEIGHT 800
-# define ITER_MAX 100
 typedef struct s_image
 {
     void    *image;
@@ -29,6 +28,7 @@ typedef struct s_window
     void        *mlx;
     void        *win;
     double      zoom;
+    int         max_iter;
     t_complex   *coords;
     t_image     image;
 }   t_window;

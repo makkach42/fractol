@@ -26,14 +26,14 @@ void    handl_pixel(double x, double y, t_window *window)
     c.imaginary = (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom;
     tmpreal = 0;
     i = 0;
-    while (i < ITER_MAX)
+    while (i < window->max_iter)
     {
         tmpreal = (z.real * z.real) - (z.imaginary * z.imaginary) + c.real + window->x;
         z.imaginary = 2 * z.real * z.imaginary + c.imaginary + window->y;
         z.real = tmpreal;
         if ((z.imaginary * z.imaginary) + (z.real * z.real) > 4)
         {
-            color = scaling_func(i, 0x000000, 0xFFFFFF, 0, ITER_MAX);
+            color = scaling_func(i, 0x000000, 0xFFFFFF, 0, window->max_iter);
             pixel_put(x, y, &window->image, color);
             return ;
         }
@@ -74,13 +74,17 @@ int    key_func(int key, t_window *window)
     if (key == 53)
         exit_func(window);
     if (key == 123)
-        window->x -= 0.5;
+        window->x -= (0.5 * window->zoom);
     if (key == 124)
-        window->x += 0.5;
+        window->x += (0.5 * window->zoom);
     if (key == 125)
-        window->y -= 0.5;
+        window->y -= (0.5 * window->zoom);
     if (key == 126)
-        window->y += 0.5;
+        window->y += (0.5 * window->zoom);
+    if (key == 69)
+        window->max_iter += 10;
+    if (key == 78)
+        window->max_iter -= 10;
     fractal_render(window);
     return (0);
 }
@@ -126,6 +130,7 @@ void    window_init(t_window *window)
     window->x = 0;
     window->y = 0;
     window->zoom = 1.0;
+    window->max_iter = 100;
     window->image.pixel = mlx_get_data_addr(window->image.image, &window->image.bpp, &window->image.line_len, &window->image.endian);
     init_events(window);
 }
