@@ -24,8 +24,11 @@ typedef struct s_complex
 
 typedef struct s_window
 {
+    double      x;
+    double      y;
     void        *mlx;
     void        *win;
+    double      zoom;
     t_complex   *coords;
     t_image     image;
 }   t_window;

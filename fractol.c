@@ -22,14 +22,14 @@ void    handl_pixel(double x, double y, t_window *window)
 
     z.real = 0;
     z.imaginary = 0;
-    c.real = scaling_func(x, -2, 2, 0, WIDTH);
-    c.imaginary = scaling_func(y, 2, -2, 0, HEIGHT);
+    c.real = (scaling_func(x, -2, 2, 0, WIDTH)) * window->zoom;
+    c.imaginary = (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom;
     tmpreal = 0;
     i = 0;
     while (i < ITER_MAX)
     {
-        tmpreal = (z.real * z.real) - (z.imaginary * z.imaginary) + c.real;
-        z.imaginary = 2 * z.real * z.imaginary + c.imaginary;
+        tmpreal = (z.real * z.real) - (z.imaginary * z.imaginary) + c.real + window->x;
+        z.imaginary = 2 * z.real * z.imaginary + c.imaginary + window->y;
         z.real = tmpreal;
         if ((z.imaginary * z.imaginary) + (z.real * z.real) > 4)
         {
@@ -61,7 +61,47 @@ void fractal_render(t_window *window)
     }
     mlx_put_image_to_window(window->mlx, window->win, window->image.image, 0, 0);
 }
+void    exit_func(t_window *window)
+{
+    mlx_destroy_image(window->mlx, window->image.image);
+    mlx_destroy_window(window->mlx, window->win);
+    free(window->mlx);
+    exit(0);
+}
 
+int    key_func(int key, t_window *window)
+{
+    if (key == 53)
+        exit_func(window);
+    if (key == 123)
+        window->x -= 0.5;
+    if (key == 124)
+        window->x += 0.5;
+    if (key == 125)
+        window->y -= 0.5;
+    if (key == 126)
+        window->y += 0.5;
+    fractal_render(window);
+    return (0);
+}
+
+int     mouse_func(int button, int x, int y, t_window *window)
+{
+    if (!window)
+        return (0);
+    
+    if (button == 5)
+        window->zoom *= 2.0;
+    if (button == 4)
+        window->zoom /= 2.0;
+    fractal_render(window);
+    return (0);
+}
+void    init_events(t_window *window)
+{
+    mlx_key_hook(window->win, key_func, window);
+    mlx_mouse_hook(window->win, mouse_func, window);
+}
 
 void    window_init(t_window *window)
 {
@@ -83,7 +123,11 @@ void    window_init(t_window *window)
         free(window->mlx);
         exit(1);
     }
+    window->x = 0;
+    window->y = 0;
+    window->zoom = 1.0;
     window->image.pixel = mlx_get_data_addr(window->image.image, &window->image.bpp, &window->image.line_len, &window->image.endian);
+    init_events(window);
 }
 int main()
 {
