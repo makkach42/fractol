@@ -30,8 +30,9 @@ int    key_func(int key, t_window *window)
 
 int mouse_func(int button, int x, int y, t_window *window)
 {
-    double mouse_x, mouse_y;
-    double zoom_factor;
+    double  mouse_x;
+    double  mouse_y;
+    double  zoom_factor;
     
     if (!window)
         return (0);
