@@ -45,11 +45,10 @@ double  atodbl(char *str)
     return ((fraction + number) * sign);
 }
 
-void    exit_func(t_window *window)
+int    exit_func(t_window *window)
 {
     mlx_destroy_image(window->mlx, window->image.image);
     mlx_destroy_window(window->mlx, window->win);
-    free(window->mlx);
     exit(0);
 }
 

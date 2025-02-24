@@ -53,4 +53,5 @@ void    init_events(t_window *window)
 {
     mlx_key_hook(window->win, key_func, window);
     mlx_mouse_hook(window->win, mouse_func, window);
+    mlx_hook(window->win, 17, 0, exit_func, window);
 }
