@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra
 MLX_DIR = minilibx_opengl
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit -lm
-SRCS = fractol.c pars.c
+SRCS = fractol.c pars.c utils.c mandelbrot.c events.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

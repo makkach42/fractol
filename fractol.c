@@ -1,154 +1,37 @@
 #include "fractol.h"
 
-double scaling_func(double num, double new_min, double new_max, double old_min, double old_max)
+void f(void)
 {
-    return ((new_max - new_min) * (num - old_min) / (old_max - old_min) + new_min);
+    system("leaks fractol");
 }
 
-void    pixel_put(int x, int y, t_image *img, int color)
+int main(int argc, char **argv) //range check //remove + - keys
 {
-    int offset;
-
-    offset = (y * img->line_len) + (x *(img->bpp / 8));
-    *(unsigned int *)(img->pixel + offset) = color;
-}
-void    handl_pixel(double x, double y, t_window *window)
-{
-    t_complex   z;
-    t_complex   c;
-    double      tmpreal;
-    int         i;
-    int         color;
-
-    z.real = 0;
-    z.imaginary = 0;
-    c.real = (scaling_func(x, -2, 2, 0, WIDTH)) * window->zoom;
-    c.imaginary = (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom;
-    tmpreal = 0;
-    i = 0;
-    while (i < window->max_iter)
+    atexit(f);
+    if (argc == 2)
     {
-        tmpreal = (z.real * z.real) - (z.imaginary * z.imaginary) + c.real + window->x;
-        z.imaginary = 2 * z.real * z.imaginary + c.imaginary + window->y;
-        z.real = tmpreal;
-        if ((z.imaginary * z.imaginary) + (z.real * z.real) > 4)
+        if (mandelbrot_check(argv[1]) == 0)
         {
-            color = scaling_func(i, 0x000000, 0xFFFFFF, 0, 799);
-            pixel_put(x, y, &window->image, color);
-            return ;
+            t_window window;
+
+            window.name = "mandelbrot";
+            window_init(&window);
+            fractal_render(&window);
+            mlx_loop((&window)->mlx);
         }
-        i++;
     }
-    pixel_put(x, y, &window->image, 0x000000);
-
-}
-void fractal_render(t_window *window)
-{
-    int x;
-    int y;
-
-    x = 0;
-    y = 0;
-    while (y < HEIGHT)
+    else if (argc == 4)
     {
-        x = 0;
-        while (x < WIDTH)
+        if (julia_check(argv) == 1)
         {
-            handl_pixel(x, y, window);
-            x++;
+            t_window window;
+            window.julia.real = atodbl(argv[2]);
+            window.julia.imaginary = atodbl(argv[3]);
+            window.name = "julia";
+            window_init(&window);
+            fractal_render(&window);
+            mlx_loop((&window)->mlx);
         }
-        y++;
     }
-    mlx_put_image_to_window(window->mlx, window->win, window->image.image, 0, 0);
-}
-void    exit_func(t_window *window)
-{
-    mlx_destroy_image(window->mlx, window->image.image);
-    mlx_destroy_window(window->mlx, window->win);
-    free(window->mlx);
-    exit(0);
-}
-
-int    key_func(int key, t_window *window)
-{
-    if (key == 53)
-        exit_func(window);
-    if (key == 123)
-        window->x -= (0.5 * window->zoom);
-    if (key == 124)
-        window->x += (0.5 * window->zoom);
-    if (key == 125)
-        window->y -= (0.5 * window->zoom);
-    if (key == 126)
-        window->y += (0.5 * window->zoom);
-    if (key == 69)
-        window->max_iter += 10;
-    if (key == 78)
-        window->max_iter -= 10;
-    fractal_render(window);
-    return (0);
-}
-
-int mouse_func(int button, int x, int y, t_window *window)
-{
-    double mouse_x, mouse_y;
-    double zoom_factor;
-    
-    if (!window)
-        return (0);
-    mouse_x = (scaling_func(x, -2, 2, 0, WIDTH)) * window->zoom + window->x;
-    mouse_y = (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom + window->y;
-    if (button == 5)
-        zoom_factor = 2.0;
-    else if (button == 4)
-        zoom_factor = 0.5;
-    else
-        return (0);
-    window->zoom *= zoom_factor;
-    window->x = mouse_x - (scaling_func(x, -2, 2, 0, WIDTH)) * window->zoom;
-    window->y = mouse_y - (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom;
-    fractal_render(window);
-    return (0);
-}
-void    init_events(t_window *window)
-{
-    mlx_key_hook(window->win, key_func, window);
-    mlx_mouse_hook(window->win, mouse_func, window);
-}
-
-void    window_init(t_window *window)
-{
-    window->mlx = mlx_init();
-    if (!window->mlx)
-    {
-        exit(1);
-    }
-    window->win = mlx_new_window(window->mlx, WIDTH, HEIGHT, "fractal");
-    if (!window->win)
-    {
-        free(window->mlx);
-        exit(1);
-    }
-    window->image.image = mlx_new_image(window->mlx, WIDTH, HEIGHT);
-    if (!window->image.image)
-    {
-        mlx_destroy_window(window->mlx, window->win);
-        free(window->mlx);
-        exit(1);
-    }
-    window->x = 0;
-    window->y = 0;
-    window->zoom = 1.0;
-    window->max_iter = 100;
-    window->image.pixel = mlx_get_data_addr(window->image.image, &window->image.bpp, &window->image.line_len, &window->image.endian);
-    init_events(window);
-}
-int main()
-{
-    t_window window;
-
-    window_init(&window);
-    fractal_render(&window);
-    mlx_loop((&window)->mlx);
     return (0);
 }
