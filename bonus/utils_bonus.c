@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 double scaling_func(double num, double new_min, double new_max, double old_min, double old_max)
 {

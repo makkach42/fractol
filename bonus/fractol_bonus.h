@@ -1,8 +1,8 @@
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 # include <stdio.h>
 # include <stdlib.h>
-# include "minilibx_opengl/mlx.h"
+# include "../minilibx_opengl/mlx.h"
 
 # define WIDTH 800
 # define HEIGHT 800

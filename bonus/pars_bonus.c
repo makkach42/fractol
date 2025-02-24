@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int check_empty(char *argv)
 {

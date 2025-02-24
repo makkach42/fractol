@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int ft_strlen(char *str)
 {

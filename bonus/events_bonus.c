@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int    key_func(int key, t_window *window)
 {
