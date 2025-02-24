@@ -33,7 +33,7 @@ void    handl_pixel(double x, double y, t_window *window)
         z.real = tmpreal;
         if ((z.imaginary * z.imaginary) + (z.real * z.real) > 4)
         {
-            color = scaling_func(i, 0x000000, 0xFFFFFF, 0, window->max_iter);
+            color = scaling_func(i, 0x000000, 0xFFFFFF, 0, 799);
             pixel_put(x, y, &window->image, color);
             return ;
         }
@@ -89,15 +89,24 @@ int    key_func(int key, t_window *window)
     return (0);
 }
 
-int     mouse_func(int button, int x, int y, t_window *window)
+int mouse_func(int button, int x, int y, t_window *window)
 {
+    double mouse_x, mouse_y;
+    double zoom_factor;
+    
     if (!window)
         return (0);
-    
+    mouse_x = (scaling_func(x, -2, 2, 0, WIDTH)) * window->zoom + window->x;
+    mouse_y = (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom + window->y;
     if (button == 5)
-        window->zoom *= 2.0;
-    if (button == 4)
-        window->zoom /= 2.0;
+        zoom_factor = 2.0;
+    else if (button == 4)
+        zoom_factor = 0.5;
+    else
+        return (0);
+    window->zoom *= zoom_factor;
+    window->x = mouse_x - (scaling_func(x, -2, 2, 0, WIDTH)) * window->zoom;
+    window->y = mouse_y - (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom;
     fractal_render(window);
     return (0);
 }
