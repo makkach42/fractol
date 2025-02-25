@@ -48,5 +48,6 @@ void    fractal_render(t_window *window);
 int     key_func(int key, t_window *window);
 int     mouse_func(int button, int x, int y, t_window *window);
 void    init_events(t_window *window);
+int		tricorn_check(char *argv);
 
 #endif

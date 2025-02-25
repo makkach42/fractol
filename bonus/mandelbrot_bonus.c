@@ -10,20 +10,23 @@ int ft_strlen(char *str)
     return (i);
 }
 
-void    handl_pixel(double x, double y, t_window *window)
+void handl_pixel(double x, double y, t_window *window)
 {
     t_complex   z;
     t_complex   c;
     double      tmpreal;
     int         i;
     int         color;
-
+    
     if (ft_strlen(window->name) == 10)
     {
-        z.real = 0;
-        z.imaginary = 0;
         c.real = (scaling_func(x, -2, 2, 0, WIDTH)) * window->zoom + window->x;
         c.imaginary = (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom + window->y;
+    }
+    else if (ft_strlen(window->name) == 7)
+    {
+        c.real = (scaling_func(x, -2.5, 1, 0, WIDTH)) * window->zoom + window->x;
+        c.imaginary = (scaling_func(y, 1, -1, 0, HEIGHT)) * window->zoom + window->y;
     }
     else if (ft_strlen(window->name) == 5)
     {
@@ -32,23 +35,33 @@ void    handl_pixel(double x, double y, t_window *window)
         z.real = (scaling_func(x, -2, 2, 0, WIDTH)) * window->zoom + window->x;
         z.imaginary = (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom + window->y;
     }
-    tmpreal = 0;
     i = 0;
+    z.real = 0;
+    z.imaginary = 0;
     while (i < window->max_iter)
     {
-        tmpreal = (z.real * z.real) - (z.imaginary * z.imaginary) + c.real;
-        z.imaginary = 2 * z.real * z.imaginary + c.imaginary;
-        z.real = tmpreal;
+        if (ft_strlen(window->name) == 7)
+        {
+            tmpreal = (z.real * z.real) - (z.imaginary * z.imaginary) + c.real;
+            z.imaginary = -2 * z.real * z.imaginary + c.imaginary;
+            z.real = tmpreal;
+        }
+        else
+        {
+            tmpreal = (z.real * z.real) - (z.imaginary * z.imaginary) + c.real;
+            z.imaginary = 2 * z.real * z.imaginary + c.imaginary;
+            z.real = tmpreal;
+        }
+        
         if ((z.imaginary * z.imaginary) + (z.real * z.real) > 4)
         {
             color = scaling_func(i, window->color, 0xFFFFFF, 0, 799);
             pixel_put(x, y, &window->image, color);
-            return ;
+            return;
         }
         i++;
     }
     pixel_put(x, y, &window->image, 0x000000);
-
 }
 void fractal_render(t_window *window)
 {
@@ -74,9 +87,7 @@ void    window_init(t_window *window)
 {
     window->mlx = mlx_init();
     if (!window->mlx)
-    {
         exit(1);
-    }
     window->win = mlx_new_window(window->mlx, WIDTH, HEIGHT, window->name);
     if (!window->win)
     {

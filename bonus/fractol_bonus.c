@@ -11,6 +11,15 @@ int main(int argc, char **argv) //range check //remove + - keys
         fractal_render(&window);
         mlx_loop((&window)->mlx);
     }
+    if (argc == 2 && tricorn_check(argv[1]) == 0)
+    {
+        t_window window;
+
+        window.name = "tricorn";
+        window_init(&window);
+        fractal_render(&window);
+        mlx_loop((&window)->mlx);
+    }
     else if (argc == 4 && julia_check(argv) == 1)
     {
         t_window window;

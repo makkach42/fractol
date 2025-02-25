@@ -78,6 +78,31 @@ int mandelbrot_check(char *argv)
         return (0);
     return (1);
 }
+
+int tricorn_check(char *argv)
+{
+    int i;
+    int j;
+    char *str1;
+
+    str1 = "tricorn";
+    i = 0;
+    j = 0;
+    if (check_empty(argv) == 1)
+        return (1);
+    while (argv[i] == 32 || argv[i] == 9)
+        i++;
+    while (argv[i] && argv[i] == str1[j])
+    {
+        i++;
+        j++;
+    }
+    while (argv[i] == 32 || argv[i] == 9)
+        i++;
+    if (argv[i] == '\0')
+        return (0);
+    return (1);
+}
 int julia_check(char **argv)
 {
     int i;
