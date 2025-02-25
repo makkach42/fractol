@@ -2,7 +2,8 @@
 # define FRACTOL_BONUS_H
 # include <stdio.h>
 # include <stdlib.h>
-# include "../minilibx_opengl/mlx.h"
+# include <mlx.h>
+# include <math.h>
 
 # define WIDTH 800
 # define HEIGHT 800
@@ -48,6 +49,6 @@ void    fractal_render(t_window *window);
 int     key_func(int key, t_window *window);
 int     mouse_func(int button, int x, int y, t_window *window);
 void    init_events(t_window *window);
-int		tricorn_check(char *argv);
+int		multibrot_check(char *argv);
 
 #endif
