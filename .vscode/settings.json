@@ -58,6 +58,7 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
     "fractol.h": "c",
-    "typeinfo": "c"
+    "typeinfo": "c",
+    "complex": "c"
   }
 }
