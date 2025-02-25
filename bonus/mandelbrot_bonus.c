@@ -28,8 +28,8 @@ void handl_pixel(double x, double y, t_window *window)
 	}
 	else if (ft_strlen(window->name) == 9)
 	{
-		c.real = (scaling_func(x, -2.5, 1, 0, WIDTH)) * window->zoom + window->x;
-		c.imaginary = (scaling_func(y, 1, -1, 0, HEIGHT)) * window->zoom + window->y;
+		c.real = (scaling_func(x, -2, 2, 0, WIDTH)) * window->zoom + window->x;
+		c.imaginary = (scaling_func(y, 2, -2, 0, HEIGHT)) * window->zoom + window->y;
 	}
 	else if (ft_strlen(window->name) == 5)
 	{
