@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:43:20 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/25 16:01:59 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/25 16:41:41 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
-# include "../minilibx_opengl/mlx.h"
+# include <mlx.h>
 
 # define WIDTH 800
 # define HEIGHT 800

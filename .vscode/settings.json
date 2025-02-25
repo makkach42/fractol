@@ -59,6 +59,7 @@
   "files.associations": {
     "fractol.h": "c",
     "typeinfo": "c",
-    "complex": "c"
+    "complex": "c",
+    "fractol_bonus.h": "c"
   }
 }

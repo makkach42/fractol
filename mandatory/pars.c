@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:55:46 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/25 16:09:06 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/25 16:49:18 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,32 +26,33 @@ int	check_empty(char *argv)
 	return (0);
 }
 
-void	julia_numbers_pars_helper(int *i, int *j, char **argv, int *flag)
+int	julia_numbers_pars_helper(int i, int j, char **argv, int flag)
 {
-	while (argv[*i])
+	while (argv[i])
 	{
 		j = 0;
-		while (argv[*i][*j] && (argv[*i][*j] == 32 || argv[*i][*j] == 9))
+		while (argv[i][j] && (argv[i][j] == 32 || argv[i][j] == 9))
 			j++;
-		while (argv[*i][*j] != 32 && argv[*i][*j] != 9)
+		while (argv[i][j] != 32 && argv[i][j] != 9)
 		{
-			if (argv[*i][*j] && argv[*i][*j] >= '0' && argv[*i][*j] <= '9')
+			if (argv[i][j] && argv[i][j] >= '0' && argv[i][j] <= '9')
 				j++;
-			else if (argv[*i][*j] && argv[*i][*j] == '.' && *flag == 1)
+			else if (argv[i][j] && argv[i][j] == '.' && flag == 1)
 			{
 				j++;
-				*flag = 0;
+				flag = 0;
 			}
 			else
 				break ;
 		}
-		while (argv[*i][*j] && (argv[*i][*j] == 32 || argv[*i][*j] == 9))
+		while (argv[i][j] && (argv[i][j] == 32 || argv[i][j] == 9))
 			j++;
-		if (argv[*i][*j] != '\0')
+		if (argv[i][j] != '\0')
 			break ;
-		*flag = 1;
+		flag = 1;
 		i++;
 	}
+	return (i);
 }
 
 int	julia_numbers_pars(char **argv)
@@ -65,7 +66,7 @@ int	julia_numbers_pars(char **argv)
 	flag = 1;
 	if (check_empty(argv[i]) == 1)
 		return (1);
-	julia_numbers_pars_helper(&i, &j, argv, &flag);
+	i = julia_numbers_pars_helper(i, j, argv, flag);
 	if (i == 4 && !argv[i])
 		return (1);
 	return (0);
