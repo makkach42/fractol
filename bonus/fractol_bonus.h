@@ -6,15 +6,15 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:38:56 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 10:48:27 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 14:33:37 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_BONUS_H
 # define FRACTOL_BONUS_H
 
-# include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 # include <mlx.h>
 
 # define WIDTH 800

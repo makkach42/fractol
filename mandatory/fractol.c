@@ -6,19 +6,32 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:41:37 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 11:20:56 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 14:47:20 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
-void	error_func()
+void	ft_putstr(char *str)
 {
-	write(2, "\nthe correct prototypes for this program are the following\n\n\n     ./fractol mandelbrot\n     ./fractol julia <value> <value2>\n\nthe values in the julia fractal should be in the interval [-2, 2]\n", 192);
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		write(1, &str[i], 1);
 }
 
-int	main(int argc, char **argv)//error handle properly
+void	error_func(void)
+{
+	ft_putstr("\nthe correct prototypes for this ");
+	ft_putstr("program are the following\n\n\n");
+	ft_putstr("     ./fractol mandelbrot\n     ./fractol multibrot\n");
+	ft_putstr("     ./fractol julia <value> <value2>\n\n");
+	ft_putstr("the values in the julia fractal ");
+	ft_putstr("should be in the interval [-2, 2]\n");
+}
+
+int	main(int argc, char **argv)
 {
 	t_window	window;
 

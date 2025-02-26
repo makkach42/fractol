@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:57:59 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 11:20:39 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 14:39:58 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ double	atodbl_helper(char *str, int i)
 	}
 	return (fraction);
 }
+
 double	atodbl(char *str)
 {
 	double	number;

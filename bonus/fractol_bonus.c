@@ -6,17 +6,36 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:38:13 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 11:00:04 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 14:47:14 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-int	main(int argc, char **argv) //error handle properly
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		write(1, &str[i], 1);
+}
+
+void	error_func(void)
+{
+	ft_putstr("\nthe correct prototypes for this ");
+	ft_putstr("program are the following\n\n\n");
+	ft_putstr("     ./fractol mandelbrot\n     ./fractol multibrot\n");
+	ft_putstr("     ./fractol julia <value> <value2>\n\n");
+	ft_putstr("the values in the julia fractal ");
+	ft_putstr("should be in the interval [-2, 2]\n");
+}
+
+int	main(int argc, char **argv)
 {
 	t_window	window;
 
-	if (argc == 2)
+	if (argc == 2 && (!mandelbrot_check(argv[1]) || !multibrot_check(argv[1])))
 	{
 		if (mandelbrot_check(argv[1]) == 0)
 			window.name = "mandelbrot";
@@ -29,11 +48,12 @@ int	main(int argc, char **argv) //error handle properly
 		window.julia.real = atodbl(argv[2]);
 		window.julia.imaginary = atodbl(argv[3]);
 		if (window.julia.real > 2 || window.julia.real < -2)
-			return (0);
+			return (error_func(), 0);
 		if (window.julia.imaginary > 2 || window.julia.imaginary < -2)
-			return (0);
+			return (error_func(), 0);
 		window.name = "julia";
 		window_mlx(&window);
 	}
-	return (0);
+	else
+		return (error_func(), 0);
 }
