@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pars_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/26 09:41:03 by makkach           #+#    #+#             */
+/*   Updated: 2025/02/26 09:54:08 by makkach          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol_bonus.h"
 
-int check_empty(char *argv)
+int	check_empty(char *argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (argv[i] == '\0')
@@ -14,51 +26,28 @@ int check_empty(char *argv)
 	return (0);
 }
 
-int julia_numbers_pars(char **argv)
+int	julia_numbers_pars(char **argv)
 {
-	int i;
-	int j;
-	int flag;
+	int	i;
+	int	j;
+	int	flag;
 
 	i = 2;
 	j = 0;
 	flag = 1;
 	if (check_empty(argv[i]) == 1)
 		return (1);
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[i][j] && (argv[i][j] == 32 || argv[i][j] == 9))
-			j++;
-		while (argv[i][j] != 32 && argv[i][j] != 9)
-		{
-			if (argv[i][j] && argv[i][j] >= '0' && argv[i][j] <= '9')
-				j++;
-			else if (argv[i][j] && argv[i][j] == '.' && flag == 1)
-			{
-				j++;
-				flag = 0;
-			}
-			else
-				break ;
-		}
-		while (argv[i][j] && (argv[i][j] == 32 || argv[i][j] == 9))
-			j++;
-		if (argv[i][j] != '\0')
-			break ;
-		flag = 1;
-		i++;
-	}
+	i = julia_numbers_pars_helper(i, j, argv, flag);
 	if (i == 4 && !argv[i])
 		return (1);
 	return (0);
 }
 
-int mandelbrot_check(char *argv)
+int	mandelbrot_check(char *argv)
 {
-	int i;
-	int j;
-	char *str1;
+	int		i;
+	int		j;
+	char	*str1;
 
 	str1 = "mandelbrot";
 	i = 0;
@@ -79,11 +68,11 @@ int mandelbrot_check(char *argv)
 	return (1);
 }
 
-int multibrot_check(char *argv)
+int	multibrot_check(char *argv)
 {
-	int i;
-	int j;
-	char *str1;
+	int		i;
+	int		j;
+	char	*str1;
 
 	str1 = "multibrot";
 	i = 0;
@@ -103,11 +92,12 @@ int multibrot_check(char *argv)
 		return (0);
 	return (1);
 }
-int julia_check(char **argv)
+
+int	julia_check(char **argv)
 {
-	int i;
-	int j;
-	char *str1;
+	int		i;
+	int		j;
+	char	*str1;
 
 	str1 = "julia";
 	i = 0;

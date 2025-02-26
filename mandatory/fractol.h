@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:43:20 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/25 16:41:41 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 10:54:46 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void	calculation(t_complex *z, t_complex *c);
 void	c_set(t_window *window, t_complex *c, int x, int y);
 void	z_set(t_window *window, t_complex *z, int x, int y);
 void	mandelbrot_helper(int x, int y, int i, t_window *window);
+int		ft_strncmp(char *str1, char *str2, size_t n);
 
 #endif

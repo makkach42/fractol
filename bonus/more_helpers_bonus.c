@@ -1,37 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   more_helpers_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 15:37:17 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 10:53:18 by makkach          ###   ########.fr       */
+/*   Created: 2025/02/26 10:26:57 by makkach           #+#    #+#             */
+/*   Updated: 2025/02/26 10:52:58 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
-void	z_set(t_window *window, t_complex *z, int x, int y)
+void	regular_calculations(t_complex *z, t_complex *c)
 {
-	if (ft_strlen(window->name) == 10)
-	{
-		(*z).real = 0;
-		(*z).imaginary = 0;
-	}
-	else if (ft_strlen(window->name) == 5)
-	{
-		(*z).real = (scaling_func(x, -2, 2)) * window->zoom;
-		(*z).imaginary = (scaling_func(y, 2, -2)) * window->zoom;
-	}
+	double	tmpreal;
+
+	tmpreal = ((*z).real * (*z).real) - ((
+				*z).imaginary * (*z).imaginary) + (*c).real;
+	(*z).imaginary = 2 * (*z).real * (*z).imaginary + (*c).imaginary;
+	(*z).real = tmpreal;
 }
 
-void	mandelbrot_helper(int x, int y, int i, t_window *window)
+void	calculations(t_complex *z, t_complex *c, t_window *window)
 {
-	int	color;
+	if (ft_strlen(window->name) == 9)
+		multibrot_calculations(z, c);
+	else
+		regular_calculations(z, c);
+}
 
-	color = scaling_func(i, 0x000000, 0xFFFFFF);
+void	colors(int i, int x, int y, t_window *window)
+{
+	double	color;
+
+	color = scaling_func(i, window->color, 0xFFFFFF);
 	pixel_put(x, y, &window->image, color);
+}
+
+void	handl_pixel_inits(int *i, t_complex *z)
+{
+	(*i) = -1;
+	(*z).real = 0;
+	(*z).imaginary = 0;
 }
 
 int	ft_strncmp(char *str1, char *str2, size_t n)

@@ -1,29 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/26 09:38:13 by makkach           #+#    #+#             */
+/*   Updated: 2025/02/26 10:01:12 by makkach          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol_bonus.h"
 
-int main(int argc, char **argv) //range check //remove + - keys
+int	main(int argc, char **argv) //range check //remove + - keys //change check for what to render its ass //error handle properly
 {
-	if (argc == 2 && mandelbrot_check(argv[1]) == 0)
-	{
-		t_window window;
+	t_window	window;
 
-		window.name = "mandelbrot";
-		window_init(&window);
-		fractal_render(&window);
-		mlx_loop((&window)->mlx);
-	}
-	if (argc == 2 && multibrot_check(argv[1]) == 0)
+	if (argc == 2)
 	{
-		t_window window;
-
-		window.name = "multibrot";
-		window_init(&window);
-		fractal_render(&window);
-		mlx_loop((&window)->mlx);
+		if (mandelbrot_check(argv[1]) == 0)
+			window.name = "mandelbrot";
+		else if (multibrot_check(argv[1]) == 0)
+			window.name = "multibrot";
+		window_mlx(&window);
 	}
 	else if (argc == 4 && julia_check(argv) == 1)
 	{
-		t_window window;
-
 		window.julia.real = atodbl(argv[2]);
 		window.julia.imaginary = atodbl(argv[3]);
 		if (window.julia.real > 2 || window.julia.real < -2)
@@ -31,9 +33,7 @@ int main(int argc, char **argv) //range check //remove + - keys
 		if (window.julia.imaginary > 2 || window.julia.imaginary < -2)
 			return (0);
 		window.name = "julia";
-		window_init(&window);
-		fractal_render(&window);
-		mlx_loop((&window)->mlx);
+		window_mlx(&window);
 	}
 	return (0);
 }

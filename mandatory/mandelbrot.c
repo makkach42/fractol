@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:51:38 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/25 16:02:26 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 10:54:30 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	handl_pixel(double x, double y, t_window *window)
 	t_complex	c;
 	int			i;
 
-	if (ft_strlen(window->name) == 10)
+	if (ft_strncmp(window->name, "mandelbrot", ft_strlen("mandelbrot")) == 0)
 	{
 		z_set(window, &z, x, y);
 		c_set(window, &c, x, y);
 	}
-	else if (ft_strlen(window->name) == 5)
+	else if (ft_strncmp(window->name, "julia", ft_strlen("julia")) == 0)
 	{
 		c_set(window, &c, x, y);
 		z_set(window, &z, x, y);
