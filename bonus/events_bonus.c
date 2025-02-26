@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:38:06 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 10:24:15 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 10:59:19 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ int	key_func(int key, t_window *window)
 		window->y -= (0.5 * window->zoom);
 	if (key == 126)
 		window->y += (0.5 * window->zoom);
-	if (key == 69)
-		window->max_iter += 10;
-	if (key == 78)
-		window->max_iter -= 10;
 	if (key == 83)
 		window->color = 0x000000;
 	if (key == 84)

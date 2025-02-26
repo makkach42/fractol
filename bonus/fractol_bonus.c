@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:38:13 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 10:01:12 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 11:00:04 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-int	main(int argc, char **argv) //range check //remove + - keys //change check for what to render its ass //error handle properly
+int	main(int argc, char **argv) //error handle properly
 {
 	t_window	window;
 

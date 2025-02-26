@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:57:59 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/25 15:12:07 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 11:20:39 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ double	atodbl_helper(char *str, int i)
 
 	fraction = 0.0;
 	power = 1.0;
+	if (!str[i])
+		return (0.0);
 	i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -40,7 +42,6 @@ double	atodbl_helper(char *str, int i)
 	}
 	return (fraction);
 }
-
 double	atodbl(char *str)
 {
 	double	number;

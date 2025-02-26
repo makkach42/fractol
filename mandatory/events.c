@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:51 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/25 15:57:14 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/26 10:57:25 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,6 @@ int	key_func(int key, t_window *window)
 {
 	if (key == 53)
 		exit_func(window);
-	if (key == 69)
-		window->max_iter += 10;
-	if (key == 78)
-		window->max_iter -= 10;
 	fractal_render(window);
 	return (0);
 }
