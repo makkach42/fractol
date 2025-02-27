@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:37:17 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 16:49:54 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:24:52 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,16 @@ void	z_set(t_window *window, t_complex *z, int x, int y)
 	}
 }
 
+int	get_color(int i)
+{
+	return (i * 0x000500);
+}
+
 void	mandelbrot_helper(int x, int y, int i, t_window *window)
 {
 	int	color;
 
-	color = scaling_func(i, 0x000000, 0xFFFFFF);
+	color = get_color(i);
 	pixel_put(x, y, &window->image, color);
 }
 

@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:40:52 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 10:51:25 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:15:22 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,13 @@ void	window_init(t_window *window)
 	window->y = 0;
 	window->zoom = 1.0;
 	window->max_iter = 100;
-	window->color = 0x000000;
+	window->color = 0x000500;
 	window->image.pixel = mlx_get_data_addr(window->image.image,
 			&window->image.bpp, &window->image.line_len, &window->image.endian);
 	init_events(window);
+}
+
+int	get_color(int i, t_window *window)
+{
+	return (i * window->color);
 }

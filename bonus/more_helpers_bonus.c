@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:26:57 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 12:00:21 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:14:32 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	colors(int i, int x, int y, t_window *window)
 {
 	double	color;
 
-	color = scaling_func(i, window->color, 0xFFFFFF);
+	color = get_color(i, window);
 	pixel_put(x, y, &window->image, color);
 }
 

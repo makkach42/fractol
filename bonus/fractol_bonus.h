@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:38:56 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 14:33:37 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:14:10 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	colors(int i, int x, int y, t_window *window);
 int		ft_strlen(char *str);
 void	handl_pixel_inits(int *i, t_complex *z);
 int		ft_strncmp(char *str1, char *str2, size_t n);
+int		get_color(int i, t_window *window);
 
 #endif
