@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:37:17 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 17:24:52 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 18:02:46 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	z_set(t_window *window, t_complex *z, int x, int y)
 
 int	get_color(int i)
 {
-	return (i * 0x000500);
+	return (i * 0x020a13);
 }
 
 void	mandelbrot_helper(int x, int y, int i, t_window *window)
