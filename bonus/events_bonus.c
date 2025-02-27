@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:38:06 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 10:59:19 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 16:58:04 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	key_func(int key, t_window *window)
 	if (key == 83)
 		window->color = 0x000000;
 	if (key == 84)
-		window->color = 0xC0C0C0;
+		window->color = 0x7209B7;
 	if (key == 85)
-		window->color = 0xFF0000;
+		window->color = 0x3A0CA3;
 	if (key == 86)
 		window->color = 0x800000;
 	fractal_render(window);
