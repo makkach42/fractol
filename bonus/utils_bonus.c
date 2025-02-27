@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:42:17 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 09:52:52 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 13:42:07 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ double	scaling_func(double num, double new_min, double new_max)
 	double	old_max;
 
 	old_min = 0;
-	old_max = 800;
+	old_max = 799;
 	return ((
 			new_max - new_min) * (num - old_min) / (old_max - old_min
 		) + new_min);
