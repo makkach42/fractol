@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:51 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 11:35:45 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 11:53:57 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	calculation(t_complex *z, t_complex *c)
 
 void	c_set(t_window *window, t_complex *c, int x, int y)
 {
-	if (ft_strlen(window->name) == 10)
+	if (ft_strncmp(window->name, "mandelbrot", ft_strlen("mandelbrot")) == 0)
 	{
 		(*c).real = (scaling_func(x, -2, 2)) * window->zoom;
 		(*c).imaginary = (scaling_func(y, 2, -2)) * window->zoom;
 	}
-	else if (ft_strlen(window->name) == 5)
+	else if (ft_strncmp(window->name, "julia", ft_strlen("julia")) == 0)
 	{
 		(*c).real = window->julia.real;
 		(*c).imaginary = window->julia.imaginary;

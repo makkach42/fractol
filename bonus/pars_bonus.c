@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:41:03 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 09:54:08 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 12:05:26 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	mandelbrot_check(char *argv)
 	}
 	while (argv[i] == 32 || argv[i] == 9)
 		i++;
-	if (argv[i] == '\0')
+	if (argv[i] == '\0' && str1[i] == '\0')
 		return (0);
 	return (1);
 }
@@ -88,7 +88,7 @@ int	multibrot_check(char *argv)
 	}
 	while (argv[i] == 32 || argv[i] == 9)
 		i++;
-	if (argv[i] == '\0')
+	if (argv[i] == '\0' && str1[j] == '\0')
 		return (0);
 	return (1);
 }
@@ -113,7 +113,7 @@ int	julia_check(char **argv)
 	}
 	while (argv[1][i] == 32 || argv[1][i] == 9)
 		i++;
-	if (argv[1][i] == '\0')
+	if (argv[1][i] == '\0' && str1[j])
 	{
 		return (julia_numbers_pars(argv));
 	}

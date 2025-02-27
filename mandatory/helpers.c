@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:37:17 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 11:36:34 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 12:00:17 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	z_set(t_window *window, t_complex *z, int x, int y)
 {
-	if (ft_strlen(window->name) == 10)
+	if (ft_strncmp(window->name, "mandelbrot", ft_strlen("mandelbrot")) == 0)
 	{
 		(*z).real = 0;
 		(*z).imaginary = 0;
 	}
-	else if (ft_strlen(window->name) == 5)
+	else if (ft_strncmp(window->name, "julia", ft_strlen("julia")) == 0)
 	{
 		(*z).real = (scaling_func(x, -2, 2)) * window->zoom;
 		(*z).imaginary = (scaling_func(y, 2, -2)) * window->zoom;

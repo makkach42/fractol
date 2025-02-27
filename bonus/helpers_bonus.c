@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:27:05 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 10:27:10 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 11:55:59 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,21 @@ void	window_mlx(t_window *window)
 
 void	c_set(t_complex *c, t_window *window, int x, int y)
 {
-	if (ft_strlen(window->name) == 10)
+	if (ft_strncmp(window->name, "mandelbrot", ft_strlen("mandelbrot")) == 0)
 	{
 		(*c).real = (scaling_func(x, -2, 2
 					)) * window->zoom + window->x;
 		(*c).imaginary = (scaling_func(y, 2, -2
 					)) * window->zoom + window->y;
 	}
-	else if (ft_strlen(window->name) == 9)
+	else if (ft_strncmp(window->name, "multibrot", ft_strlen("multibrot")) == 0)
 	{
 		(*c).real = (scaling_func(x, -2, 2
 					)) * window->zoom + window->x;
 		(*c).imaginary = (scaling_func(y, 2, -2
 					)) * window->zoom + window->y;
 	}
-	else if (ft_strlen(window->name) == 5)
+	else if (ft_strncmp(window->name, "julia", ft_strlen("julia")) == 0)
 	{
 		(*c).real = window->julia.real;
 		(*c).imaginary = window->julia.imaginary;
