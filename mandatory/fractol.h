@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:43:20 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 11:00:09 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 11:36:02 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ typedef struct s_complex
 
 typedef struct s_window
 {
-	double		x;
-	double		y;
 	void		*mlx;
 	void		*win;
 	double		zoom;
