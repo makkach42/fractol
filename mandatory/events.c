@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:51 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/26 10:57:25 by makkach          ###   ########.fr       */
+/*   Updated: 2025/02/27 11:10:48 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ int	key_func(int key, t_window *window)
 {
 	if (key == 53)
 		exit_func(window);
+	if (key == 123)
+		window->x -= (0.5 * window->zoom);
+	if (key == 124)
+		window->x += (0.5 * window->zoom);
+	if (key == 125)
+		window->y -= (0.5 * window->zoom);
+	if (key == 126)
+		window->y += (0.5 * window->zoom);
 	fractal_render(window);
 	return (0);
 }
@@ -60,8 +68,8 @@ void	c_set(t_window *window, t_complex *c, int x, int y)
 {
 	if (ft_strlen(window->name) == 10)
 	{
-		(*c).real = (scaling_func(x, -2, 2)) * window->zoom;
-		(*c).imaginary = (scaling_func(y, 2, -2)) * window->zoom;
+		(*c).real = (scaling_func(x, -2, 2)) * window->zoom + window->x;
+		(*c).imaginary = (scaling_func(y, 2, -2)) * window->zoom + window->y;
 	}
 	else if (ft_strlen(window->name) == 5)
 	{
