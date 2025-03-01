@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:55:46 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/01 15:18:20 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/01 15:49:45 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	julia_numbers_pars_helper(int i, int j, char **argv, int flag)
 			j++;
 		while (argv[i][j] != 32 && argv[i][j] != 9)
 		{
-			if (argv[i][j] && (argv[i][j] == '-' || (
-					argv[i][j] >= '0' && argv[i][j] <= '9')))
+			if (argv[i][j] && ((argv[i][j] == '-' || argv[i][j]
+				== '+') || (argv[i][j] >= '0' && argv[i][j] <= '9')))
 				j++;
 			else if (argv[i][j] && argv[i][j] == '.' && flag == 1)
 			{
