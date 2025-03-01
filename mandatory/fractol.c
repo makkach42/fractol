@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:41:37 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 11:08:00 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/01 15:25:26 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	error_func(void)
 	ft_putstr("     ./fractol julia <value> <value2>\n\n");
 	ft_putstr("the values in the julia fractal ");
 	ft_putstr("should be in the interval [-2, 2]\n");
+	exit(1);
 }
 
 int	main(int argc, char **argv)
