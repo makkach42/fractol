@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:51:38 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 17:23:48 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/01 12:03:13 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,11 @@ void	window_init(t_window *window)
 		exit(1);
 	window->win = mlx_new_window(window->mlx, WIDTH, HEIGHT, window->name);
 	if (!window->win)
-	{
-		free(window->mlx);
 		exit(1);
-	}
 	window->image.image = mlx_new_image(window->mlx, WIDTH, HEIGHT);
 	if (!window->image.image)
 	{
 		mlx_destroy_window(window->mlx, window->win);
-		free(window->mlx);
 		exit(1);
 	}
 	window->zoom = 1.0;
