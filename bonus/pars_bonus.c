@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:41:03 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 13:49:36 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/01 15:20:03 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	julia_numbers_pars(char **argv)
 	flag = 1;
 	if (check_empty(argv[i]) == 1)
 		return (1);
+	i = 1;
 	i = julia_numbers_pars_helper(i, j, argv, flag);
 	if (i == 4 && !argv[i])
 		return (1);
