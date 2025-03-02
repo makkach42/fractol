@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:40:52 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/02 11:50:30 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 20:08:01 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-void	handl_pixel(double x, double y, t_window *window)
+static void	handl_pixel(double x, double y, t_window *window)
 {
 	t_complex	z;
 	t_complex	c;
@@ -31,7 +31,7 @@ void	handl_pixel(double x, double y, t_window *window)
 	handl_pixel_inits(&i, &z);
 	if (ft_strncmp(window->name, "mandelbrot", ft_strlen("mandelbrot")) == 0)
 		c_set(&c, window, x, y);
-	else if (ft_strncmp(window->name, "multibrot", ft_strlen("multibrot")) == 0)
+	else if (ft_strncmp(window->name, "tricorn", ft_strlen("tricorn")) == 0)
 		c_set(&c, window, x, y);
 	else if (ft_strncmp(window->name, "julia", ft_strlen("julia")) == 0)
 	{
@@ -75,20 +75,13 @@ void	window_init(t_window *window)
 {
 	window->mlx = mlx_init();
 	if (!window->mlx)
-	{
-		write(2, "Error: mlx_init failed\n", 24);
 		exit(1);
-	}
 	window->win = mlx_new_window(window->mlx, WIDTH, HEIGHT, window->name);
 	if (!window->win)
-	{
-		write(2, "Error: mlx_new_window failed\n", 30);
 		exit(1);
-	}
 	window->image.image = mlx_new_image(window->mlx, WIDTH, HEIGHT);
 	if (!window->image.image)
 	{
-		write(2, "Error: mlx_new_image failed\n", 29);
 		mlx_destroy_window(window->mlx, window->win);
 		exit(1);
 	}

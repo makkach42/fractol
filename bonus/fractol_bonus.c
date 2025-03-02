@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:38:13 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/02 11:48:32 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 20:07:05 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-void	ft_putstr(char *str)
+static void	ft_putstr(char *str)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ void	ft_putstr(char *str)
 		write(2, &str[i], 1);
 }
 
-void	error_func(void)
+static void	error_func(void)
 {
 	ft_putstr("\nthe correct prototypes for this ");
 	ft_putstr("program are the following\n\n\n");
@@ -47,12 +47,12 @@ int	main(int argc, char **argv)
 {
 	t_window	window;
 
-	if (argc == 2 && (!mandelbrot_check(argv[1]) || !multibrot_check(argv[1])))
+	if (argc == 2 && (!mandelbrot_check(argv[1]) || !tricorn_check(argv[1])))
 	{
 		if (mandelbrot_check(argv[1]) == 0)
 			window.name = "mandelbrot";
-		else if (multibrot_check(argv[1]) == 0)
-			window.name = "multibrot";
+		else if (tricorn_check(argv[1]) == 0)
+			window.name = "tricorn";
 		window_mlx(&window);
 	}
 	else if (argc == 4 && julia_check(argv) == 1)

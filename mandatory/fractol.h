@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:43:20 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/02 11:51:30 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 19:45:54 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,12 @@ int		exit_func(t_window *window);
 void	pixel_put(int x, int y, t_image *img, int color);
 void	window_init(t_window *window);
 void	fractal_render(t_window *window);
-int		key_func(int key, t_window *window);
-int		mouse_func(int button, int x, int y, t_window *window);
 void	init_events(t_window *window);
 int		ft_strlen(char *str);
 void	calculation(t_complex *z, t_complex *c);
 void	c_set(t_window *window, t_complex *c, int x, int y);
 void	z_set(t_window *window, t_complex *z, int x, int y);
-void	mandelbrot_helper(int x, int y, int i, t_window *window);
+void	coloring(int x, int y, int i, t_window *window);
 int		ft_strncmp(char *str1, char *str2, size_t n);
 
 #endif

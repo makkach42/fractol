@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:55:46 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/01 15:49:45 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 19:44:18 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	check_empty(char *argv)
+static int	check_empty(char *argv)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	check_empty(char *argv)
 	return (0);
 }
 
-int	julia_numbers_pars_helper(int i, int j, char **argv, int flag)
+static int	julia_numbers_pars_helper(int i, int j, char **argv, int flag)
 {
 	while (argv[++i])
 	{
@@ -55,7 +55,7 @@ int	julia_numbers_pars_helper(int i, int j, char **argv, int flag)
 	return (i);
 }
 
-int	julia_numbers_pars(char **argv)
+static int	julia_numbers_pars(char **argv)
 {
 	int	i;
 	int	j;

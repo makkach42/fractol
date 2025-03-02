@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:40:51 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 11:53:57 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 19:41:32 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	key_func(int key, t_window *window)
+static int	key_func(int key, t_window *window)
 {
 	if (key == 53)
 		exit_func(window);
@@ -20,7 +20,7 @@ int	key_func(int key, t_window *window)
 	return (0);
 }
 
-int	mouse_func(int button, int x, int y, t_window *window)
+static int	mouse_func(int button, int x, int y, t_window *window)
 {
 	double	zoom_factor;
 

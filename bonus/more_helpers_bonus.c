@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:26:57 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 17:14:32 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 20:10:09 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	regular_calculations(t_complex *z, t_complex *c)
 
 void	calculations(t_complex *z, t_complex *c, t_window *window)
 {
-	if (ft_strlen(window->name) == 9)
-		multibrot_calculations(z, c);
+	if (ft_strncmp(window->name, "tricorn", ft_strlen("tricorn")) == 0)
+		tricorn_calculations(z, c);
 	else
 		regular_calculations(z, c);
 }

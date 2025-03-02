@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:38:56 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/02 11:50:14 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 20:02:14 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,13 @@ int		exit_func(t_window *window);
 void	pixel_put(int x, int y, t_image *img, int color);
 void	window_init(t_window *window);
 void	fractal_render(t_window *window);
-int		key_func(int key, t_window *window);
-int		mouse_func(int button, int x, int y, t_window *window);
 void	init_events(t_window *window);
-int		multibrot_check(char *argv);
+int		tricorn_check(char *argv);
 int		julia_numbers_pars_helper(int i, int j, char **argv, int flag);
 void	window_mlx(t_window *window);
 void	c_set(t_complex *c, t_window *window, int x, int y);
 void	z_set(t_complex *z, t_window *window, int x, int y);
-void	multibrot_calculations(t_complex *z, t_complex *c);
+void	tricorn_calculations(t_complex *z, t_complex *c);
 void	regular_calculations(t_complex *z, t_complex *c);
 void	calculations(t_complex *z, t_complex *c, t_window *window);
 void	colors(int i, int x, int y, t_window *window);

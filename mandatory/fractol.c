@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:41:37 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/02 11:39:36 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 19:41:09 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_putstr(char *str)
+static void	ft_putstr(char *str)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ void	ft_putstr(char *str)
 		write(2, &str[i], 1);
 }
 
-void	error_func(void)
+static void	error_func(void)
 {
 	ft_putstr("\nthe correct prototypes for this ");
 	ft_putstr("program are the following\n\n\n");

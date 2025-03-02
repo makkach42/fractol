@@ -6,13 +6,13 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:41:03 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/01 15:20:03 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 20:01:29 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-int	check_empty(char *argv)
+static int	check_empty(char *argv)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	check_empty(char *argv)
 	return (0);
 }
 
-int	julia_numbers_pars(char **argv)
+static int	julia_numbers_pars(char **argv)
 {
 	int	i;
 	int	j;
@@ -69,13 +69,13 @@ int	mandelbrot_check(char *argv)
 	return (1);
 }
 
-int	multibrot_check(char *argv)
+int	tricorn_check(char *argv)
 {
 	int		i;
 	int		j;
 	char	*str1;
 
-	str1 = "multibrot";
+	str1 = "tricorn";
 	i = 0;
 	j = 0;
 	if (check_empty(argv) == 1)

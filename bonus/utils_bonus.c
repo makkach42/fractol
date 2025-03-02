@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:42:17 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/01 12:04:56 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 20:06:03 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ double	scaling_func(double num, double new_min, double new_max)
 		) + new_min);
 }
 
-double	atodbl_helper(char *str, int i)
+static double	atodbl_helper(char *str, int i)
 {
 	double	fraction;
 	double	power;

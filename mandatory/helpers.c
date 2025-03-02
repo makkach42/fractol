@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 15:37:17 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 18:02:46 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 19:43:40 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	get_color(int i)
 	return (i * 0x020a13);
 }
 
-void	mandelbrot_helper(int x, int y, int i, t_window *window)
+void	coloring(int x, int y, int i, t_window *window)
 {
 	int	color;
 

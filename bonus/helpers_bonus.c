@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:27:05 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/01 15:49:28 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 20:08:23 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	c_set(t_complex *c, t_window *window, int x, int y)
 		(*c).imaginary = (scaling_func(y, 2, -2
 					)) * window->zoom + window->y;
 	}
-	else if (ft_strncmp(window->name, "multibrot", ft_strlen("multibrot")) == 0)
+	else if (ft_strncmp(window->name, "tricorn", ft_strlen("tricorn")) == 0)
 	{
 		(*c).real = (scaling_func(x, -2, 2
 					)) * window->zoom + window->x;
@@ -79,16 +79,16 @@ void	z_set(t_complex *z, t_window *window, int x, int y)
 				)) * window->zoom + window->y;
 }
 
-void	multibrot_calculations(t_complex *z, t_complex *c)
+void tricorn_calculations(t_complex *z, t_complex *c)
 {
-	double	tmpreal;
-	double	r2;
-	double	i2;
-
-	r2 = (*z).real * (*z).real;
-	i2 = (*z).imaginary * (*z).imaginary;
-	tmpreal = r2 * (*z).real - 3 * (*z).real * i2 + (*c).real;
-	(*z).imaginary = 3 * r2 * (*z
-			).imaginary - i2 * (*z).imaginary + (*c).imaginary;
-	(*z).real = tmpreal;
+    double tmpreal;
+    double r2;
+    double i2;
+        
+    r2 = (*z).real * (*z).real;
+    i2 = (*z).imaginary * (*z).imaginary;
+    
+    tmpreal = r2 - i2 + (*c).real;
+    (*z).imaginary = -2 * (*z).real * (*z).imaginary + (*c).imaginary;
+    (*z).real = tmpreal;
 }
