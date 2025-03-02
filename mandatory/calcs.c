@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   calcs.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:51:38 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/01 12:03:13 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 11:39:21 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,20 @@ void	window_init(t_window *window)
 {
 	window->mlx = mlx_init();
 	if (!window->mlx)
+	{
+		write(2, "Error: mlx_init failed\n", 24);
 		exit(1);
+	}
 	window->win = mlx_new_window(window->mlx, WIDTH, HEIGHT, window->name);
 	if (!window->win)
+	{
+		write(2, "Error: mlx_new_window failed\n", 30);
 		exit(1);
+	}
 	window->image.image = mlx_new_image(window->mlx, WIDTH, HEIGHT);
 	if (!window->image.image)
 	{
+		write(2, "Error: mlx_new_image failed\n", 29);
 		mlx_destroy_window(window->mlx, window->win);
 		exit(1);
 	}

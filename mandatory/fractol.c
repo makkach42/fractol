@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:41:37 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/01 15:25:26 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 11:39:36 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putstr(char *str)
 
 	i = -1;
 	while (str[++i])
-		write(1, &str[i], 1);
+		write(2, &str[i], 1);
 }
 
 void	error_func(void)
