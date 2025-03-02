@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:43:20 by makkach           #+#    #+#             */
-/*   Updated: 2025/02/27 11:36:02 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 11:51:30 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_window
 	int			max_iter;
 	char		*name;
 	t_complex	julia;
-	t_complex	*coords;
 	t_image		image;
 }	t_window;
 

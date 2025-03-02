@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 09:38:13 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/02 11:39:40 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/02 11:48:32 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void	error_func(void)
 	ft_putstr("the values in the julia fractal ");
 	ft_putstr("should be in the interval [-2, 2]\n");
 	exit(1);
+}
+
+void	more_inits(t_window *window)
+{
+	window->x = 0;
+	window->y = 0;
+	window->zoom = 1.0;
+	window->max_iter = 100;
+	window->color = 0x020a13;
+	window->image.pixel = mlx_get_data_addr(window->image.image,
+			&window->image.bpp, &window->image.line_len, &window->image.endian);
 }
 
 int	main(int argc, char **argv)
