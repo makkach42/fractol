@@ -6,7 +6,7 @@
 /*   By: makkach <makkach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:27:05 by makkach           #+#    #+#             */
-/*   Updated: 2025/03/02 20:08:23 by makkach          ###   ########.fr       */
+/*   Updated: 2025/03/03 12:31:22 by makkach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,15 @@ void	z_set(t_complex *z, t_window *window, int x, int y)
 				)) * window->zoom + window->y;
 }
 
-void tricorn_calculations(t_complex *z, t_complex *c)
+void	tricorn_calculations(t_complex *z, t_complex *c)
 {
-    double tmpreal;
-    double r2;
-    double i2;
-        
-    r2 = (*z).real * (*z).real;
-    i2 = (*z).imaginary * (*z).imaginary;
-    
-    tmpreal = r2 - i2 + (*c).real;
-    (*z).imaginary = -2 * (*z).real * (*z).imaginary + (*c).imaginary;
-    (*z).real = tmpreal;
+	double	tmpreal;
+	double	r2;
+	double	i2;
+
+	r2 = (*z).real * (*z).real;
+	i2 = (*z).imaginary * (*z).imaginary;
+	tmpreal = r2 - i2 + (*c).real;
+	(*z).imaginary = -2 * (*z).real * (*z).imaginary + (*c).imaginary;
+	(*z).real = tmpreal;
 }

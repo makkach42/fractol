@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/mnt/homes/makkach/Desktop/fractol",
-      "program": "/mnt/homes/makkach/Desktop/fractol/build/Debug/outDebug"
+      "cwd": "/mnt/homes/makkach/Desktop/fractol/bonus",
+      "program": "/mnt/homes/makkach/Desktop/fractol/bonus/build/Debug/outDebug"
     }
   ]
 }
